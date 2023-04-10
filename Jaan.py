@@ -1,49 +1,83 @@
-import os
+#!/usr/bin/python2
+#coding=utf-8
 
+import os,sys,time,datetime,random,hashlib,re,threading,json,getpass,urllib,cookielib
+from multiprocessing.pool import ThreadPool
 try:
-
-	import requestsexcept ImportError:
-
-	os.system("pip install requests")
-
-try:
-
-	import concurrent.futures
-
+    import requests
 except ImportError:
+    os.system('pip2 install requests')
+try:
+    import mechanize
+except ImportError:
+    os.system('pip2 install mechanize')
+    os.system('python2 4deel.py')
 
-	os.system("pip install futures")
+from requests.exceptions import ConnectionError
+from mechanize import Browser
 
-import os
+#### browser ####
+reload(sys)
+sys.setdefaultencoding('utf8')
+br = mechanize.Browser()
+br.set_handle_robots(False)
+br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
+br.addheaders = [('User-Agent','Opera/9.80 (Android; Opera Mini/32.0.2254/85. U; id) Presto/2.12.423 Version/12.16')]
 
-import sys
+#### colours ####
+B='\033[1;94m'
+R='\033[1;91m'
+G='\033[1;92m'
+W='\033[1;97m'
+S='\033[1;96m'
+P='\033[1;95m'
+Y='\033[1;93m'
 
-import time
+#### exit ####
+def exb():
+	print (R + 'Exit')
+	os.sys.exit()
 
-import requests
+#### clear ####
+def cb():
+    os.system('clear')
 
-import random
+#### time sleep ####
+def t():
+    time.sleep(1)
+def t1():
+    time.sleep(0.01)
 
-import platform
+#### print std ####
+def psb(z):
+	for e in z + '\n':
+		sys.stdout.write(e)
+		sys.stdout.flush()
+		t1()
 
-import base64
+#### token remove ####
+def trb():
+    os.system('rm -rf token.txt')
 
-import subprocess
+##### LOGO #####
+logo='''
+\033[1;94m ┈┈┈┈╱▔▔▔▔╲┈┈┈┈☞☞☞☞☞☞\033[1;91m☜☜☜☜☜┈┈┈┈╱▔▔▔▔╲┈┈┈┈
+\033[1;94m ┈┈┈▕▕KING LG▏▏┈┈┈☞☞☞☞☞☞\033[1;91m☜☜☜☜☜┈┈┈▕▕LG BR▏▏┈┈┈
+\033[1;94m ┈┈┈▕▕▂╱╲▂▏▏┈┈┈☞☞☞☞☞☞\033[1;91m☜☜☜☜☜┈┈┈▕▕▂╱╲▂▏▏┈┈┈
+\033[1;94m ┈┈┈┈╲┊┊┊┊╱┈┈┈┈\033[1;94mADEELKHAN.\033[1;91m┈┈┈┈╲┊┊┊┊╱┈┈┈┈
+\033[1;96m ┈┈┈┈▕╲▂▂╱▏┈┈┈┈☞☞☞☞☞☞\033[1;91m☜☜☜☜☜┈┈┈┈▕╲▂▂╱▏┈┈┈┈
+\033[1;96m ╱▔▔▔▔┊┊┊┊▔▔▔▔╲☞☞☞☞☞☞\033[1;91m☜☜☜☜☜╱▔▔▔▔┊┊┊┊▔▔▔▔╲
+\033[1;96m................\033[1;93ADEEL_KHAN_LEGHARI\033[1;91m...............
+\033[1;96m................\033[1;93m✬🄵🄰🄲🄴🄱🄾🄾🄺✬\033[1;91m..............
 
-from concurrent.futures import ThreadPoolExecutor
+\033[1;96m░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-def runtxt(z):
+\033[1;91m☞ Auther     : LG_BR4ND_ADEEL_8NTR
+\033[1;92m☞ WhatsApp   : +92 344 4818 642
+\033[1;95m☞ YouTube    : https://youtube.com/channel/UCQTyBAoBvb55LpKEnu08AiQ
 
-    for e in z + "\n":
-
-        sys.stdout.write(e)
-
-        sys.stdout.flush()
-
-        time.sleep(0.03)
-
-def helpnote():
-
+\033[1;93m░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+                                '''
 	print("%s [*] FOLLOW ME ON Fb TU KNOW ABOUT UPDATES  :)"%(G))
 
 	subprocess.check_output(["am", "start", "https://www.facebook.com/ved.baghel.39"])
